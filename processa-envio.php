@@ -62,7 +62,7 @@
 
 	    //Recipients
 	    $mail->setFrom('cursowebteste80@gmail.com', 'Teste curso web remetente');
-	    $mail->addAddress('cursowebteste80@gmail.com', 'Teste curso web destinatário'); // Add a recipient
+	    $mail->addAddress($msg->__get('para')); // Add a recipient
 	    // $mail->addAddress('ellen@example.com'); // Name is optional
 	    // $mail->addReplyTo('info@example.com', 'Information');
 	    // $mail->addCC('cc@example.com');
@@ -74,12 +74,12 @@
 
 	    // Content
 	    $mail->isHTML(true);                                  // Set email format to HTML
-	    $mail->Subject = 'Assunto do Email';
-	    $mail->Body = 'Conteúdo do <strong>e-mail</strong>';
-	    $mail->AltBody = 'Conteúdo do e-mail';
+	    $mail->Subject = $msg->__get('assunto');
+	    $mail->Body = $msg->__get('msg');
+	    $mail->AltBody = 'É necessário usar um client que suporte HTML para ver toda a mensagem';
 
 	    $mail->send();
-	    echo 'Message has been sent';
+	    echo 'E-mail enviado com sucesso';
 	}
 	catch (Exception $e) {
 	    echo 'Não foi possível enviar esse e-mail </br>'; 
