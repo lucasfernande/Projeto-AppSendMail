@@ -1,5 +1,12 @@
 <?php  
 		
+	# importanto o PHPMailer
+    require 'bibliotecas/PHPMailer/Exception.php';
+    require 'bibliotecas/PHPMailer/OAuth.php';
+    require 'bibliotecas/PHPMailer/PHPMailer.php';
+    require 'bibliotecas/PHPMailer/POP3.php';
+    require 'bibliotecas/PHPMailer/SMTP.php';
+
 	class Mensagem {
 		private $para = null;
 		private $assunto = null;
@@ -25,8 +32,8 @@
 			if (empty($this->para) || empty($this->assunto) || empty($this->msg)) {
 				return false;
 			}
-			return true;
 
+			return true;
 		}
 	}	
 
